@@ -84,8 +84,8 @@
 \setbeamertemplate{theorems}[numbered]
 
 % General blocks:
-\setbeamertemplate{blocks}[rounded][shadow=true]
-
+% \setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{blocks}[rounded=true,shadow=false]
 % Background
 \pgfdeclareimage[width=\paperwidth,height=0.95\paperheight]{bg}{tjbackground1.jpg}
 \setbeamertemplate{background}{\pgfuseimage{bg}}
@@ -188,7 +188,7 @@
 \includegraphics[width=0.2720\paperwidth]{tj_logo.jpg}
 \vskip0.0361\titlepageheaderheight
 \end{beamercolorbox}
-\begin{beamercolorbox}[center,wd=0.87\paperwidth,ht=\titlepagemaintitleblockheight,rounded=true,shadow=true]{title}
+\begin{beamercolorbox}[center,wd=0.87\paperwidth,ht=\titlepagemaintitleblockheight,rounded=false,shadow=true]{title}
   \usebeamerfont{title}\inserttitle\\
   \vskip\titlepagespaceunderdate%
   \usebeamerfont{subtitle}\insertsubtitle
@@ -208,7 +208,7 @@
 \end{beamercolorbox}
 }
 \begin{comment}
-\begin{beamercolorbox}[center,wd=0.92\paperwidth,ht=\titlepagemaintitleblockheight,rounded=true,shadow=true]{title}
+\begin{beamercolorbox}[center,wd=0.92\paperwidth,ht=\titlepagemaintitleblockheight,rounded=false,shadow=true]{title}
   \usebeamerfont{title}\inserttitle\\
   \vskip\titlepagespaceunderdate%
   \usebeamerfont{subtitle}\insertsubtitle
