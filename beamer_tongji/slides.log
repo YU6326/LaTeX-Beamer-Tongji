@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.8.18)  2 OCT 2019 19:14
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.8.18)  2 OCT 2019 19:19
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1859,7 +1859,7 @@ runsystem(del slides.pyg)...executed.
 Here is how much of TeX's memory you used:
  43843 strings out of 492922
  905064 string characters out of 6136751
- 1025776 words of memory out of 5000000
+ 1025794 words of memory out of 5000000
  47044 multiletter control sequences out of 15000+600000
  547643 words of font info for 142 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
