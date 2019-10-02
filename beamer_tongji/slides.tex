@@ -3,14 +3,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{fontspec}
 \usepackage{comment}
-%\setCJKfamilyfont{SimHei}
-\usepackage{xeCJK}
-%\renewcommand{\CJKfamilydefault}{\CJKsfdefault}
-%\setmonofont{Consolas}
+
+\setmonofont{Consolas}
 \setsansfont{Microsoft YaHei}
 \setCJKmainfont{Microsoft YaHei}
-%\setCJKmonofont{KaiTi}
-%\setCJKsansfont{Microsoft YaHei}
+
 \usefonttheme{professionalfonts}
 \usepackage{hyperref}
 \usepackage{graphicx}
@@ -18,7 +15,7 @@
 % \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 %\usepackage{epstopdf}
 \usepackage{bm}
-\usepackage{nkcolor}
+\usepackage{tjcolor}
 %\usepackage{hyperref}
 \hypersetup{CJKbookmarks=true}
 \usepackage{url}
@@ -35,7 +32,7 @@
 %\usepackage[backend=biber,style=apalike]{biblatex}
 %\usepackage[backend=biber,style=authoryear]{biblatex}
 % if style=apalike or authoryear, use \parencite instead of \cite
-\addbibresource{nkthesis.bib}
+\addbibresource{tjthesis.bib}
 \beamertemplatetextbibitems
 \usepackage{array} % for better arrays (eg matrices) in maths
 %\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
@@ -52,30 +49,12 @@
 %\usepackage{capt-of}
 \setcounter{tocdepth}{1}%只显示section，不显示subsection
 \usepackage{listings}
-\lstset{tabsize=4, keepspaces=true,
-    xleftmargin=2em,xrightmargin=0em, aboveskip=1em,
-    backgroundcolor=\color{gray!20},  % 定义背景颜色
-    frame=none,                       % 表示不要边框
-    extendedchars=false,              % 解决代码跨页时，章节标题，页眉等汉字不显示的问题
-    numberstyle=\ttfamily,
-    basicstyle=\ttfamily,
-    keywordstyle=\color{blue}\bfseries,
-    breakindent=10pt,
-    identifierstyle=,                 % nothing happens
-    commentstyle=\color{green}\small,  % 注释的设置
-    morecomment=[l][\color{green}]{\#},
-    numbers=left,stepnumber=1,numberstyle=\scriptsize,
-    showstringspaces=false,
-    showspaces=false,
-    flexiblecolumns=true,
-    breaklines=true, breakautoindent=true,breakindent=4em,
-    escapeinside={/*@}{@*/},
-}
+
 
 \title[Beamer模板]{中文题目}
 \subtitle{English Title}
 \author[作者]{答辩人：\quad \\ 学号：\quad  \\ 专业：\quad \\ 指导教师：\quad \\\quad}
-\institute[学院]{南开大学 \quad 学院}
+\institute[学院]{同济大学 \quad 学院}
 \date{2019年5月} %Activate to display a given date or no date (if empty),
 % otherwise the current date is printed
 
@@ -156,7 +135,7 @@ This is comment.
 \begin{frame}{图片}
     \begin{figure}
         \centering
-        \includegraphics[width=0.85\textwidth]{nk_logo.png}
+        \includegraphics[width=0.85\textwidth]{tj_logo.jpg}
         \caption{南开大学}\label{fig:nk}
     \end{figure}
 \end{frame}
@@ -166,7 +145,7 @@ This is comment.
         \begin{column}{0.3\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[width=0.95\textwidth]{nk_logo.png}
+                \includegraphics[width=0.95\textwidth]{tj_logo.jpg}
                 \caption{NKU}\label{fig:nku}
             \end{figure}
         \end{column}
@@ -181,8 +160,8 @@ This is comment.
 \begin{frame}{Subfigure}
     \begin{figure}
         \centering
-        \subfigure[]{\includegraphics[width=0.47\textwidth]{nk_logo.png}}
-        \subfigure[]{\includegraphics[width=0.47\textwidth]{nkbackground.png}}
+        \subfigure[]{\includegraphics[width=0.47\textwidth]{tj_logo.jpg}}
+        \subfigure[]{\includegraphics[width=0.47\textwidth]{tjbackground1.jpg}}
         \caption{Subfigure\footnote{See: \url{www.nankai.edu.cn}}}\label{fig:rnn}
     \end{figure}
 \end{frame}

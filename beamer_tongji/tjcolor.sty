@@ -1,5 +1,6 @@
 %--------------------------------------------------------
-% NOTE: 1) This is an UNOFFICIAL LaTeX beamer style about Python.
+% NOTE: 1) This is an UNOFFICIAL LaTeX beamer style for 
+%           Nankai University.
 %       2) This is not exactly a beamer style, rather
 %           it contains two LaTeX files to be inserted 
 %           in the slides' source file.
@@ -46,7 +47,8 @@
 %--------------------------------------------------------
 
 % Layout scheme for outer elements: split(give ALL section & subsection) or infolines(give CURRENT section & subsection)
-\useoutertheme{infolines}
+%\useoutertheme{infolines}
+\useoutertheme[subsection=false]{miniframes}
 
 % Color scheme for outer elements: use background colors
 \usecolortheme{whale}
@@ -85,7 +87,7 @@
 \setbeamertemplate{blocks}[rounded][shadow=true]
 
 % Background
-\pgfdeclareimage[width=\paperwidth,height=0.95\paperheight]{bg}{pybg.png}
+\pgfdeclareimage[width=\paperwidth,height=0.95\paperheight]{bg}{tjbackground1.jpg}
 \setbeamertemplate{background}{\pgfuseimage{bg}}
 
 %--------------------------------------------------------
@@ -129,11 +131,11 @@
 \setlength{\headingheight}{0.1\paperheight}
 \setlength{\footerheight}{0.09017\paperheight}
 
-\setlength{\titlepageheaderheight}{0.1761\paperheight}
-\setlength{\titlepagefooterheight}{0.2759\paperheight}
-\setlength{\titlepagemaintitleblockheight}{0.2361\paperheight}
+\setlength{\titlepageheaderheight}{0.1261\paperheight}
+\setlength{\titlepagefooterheight}{0.0\paperheight}
+\setlength{\titlepagemaintitleblockheight}{0.1761\paperheight}
 \setlength{\titlepagesubtitleblockheight}{0.1\paperheight}
-\setlength{\titlepagenamedateblockheight}{0.3161\paperheight}
+\setlength{\titlepagenamedateblockheight}{0.4261\paperheight}
 %\setlength{\titlepageinstitutionheight}{0.95cm}
 
 \setlength{\titlepagespaceundername}{16pt}
@@ -147,18 +149,18 @@
 %--------------------------------------------------------
 
 % Define colour names
-\definecolor{pyblue}{rgb}{0.2392 0.4784 0.6705} %#(61,122,171)
-\definecolor{pyyellow}{rgb}{1 0.8980 0.4157} %#(255,229,106)
-%\setbeamercolor{nktitle}{bg=white,fg=pyblue}
+\definecolor{nkpurple}{rgb}{0.44140 0.10156 0.37109} %#(113,26,95)
+\definecolor{tjblue}{RGB}{0,96,151} %#0 96 151
+%\setbeamercolor{nktitle}{bg=white,fg=nkpurple}
 %\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
 % Set element colours
-\setbeamercolor{title}{bg=pyyellow, fg=pyblue}
-\setbeamercolor{subtitle}{bg=white, fg=pyblue}
+\setbeamercolor{title}{bg=black!5!white, fg=tjblue}
+\setbeamercolor{subtitle}{bg=white, fg=tjblue}
 \setbeamercolor{titlepageheader}{bg=white,fg=black}
 \setbeamercolor{titlepagefooter}{bg=white,fg=black}
-\setbeamercolor{block title}{fg=white,bg=pyblue}
-\setbeamercolor{block body}{fg=black,bg=pyblue!10!white}
-\setbeamercolor{structure}{bg=white, fg=pyblue}
+\setbeamercolor{block title}{fg=white,bg=tjblue}
+\setbeamercolor{block body}{fg=black,bg=tjblue!10!white}
+\setbeamercolor{structure}{bg=white, fg=tjblue}
 % \setbeamercolor{alerted text}{fg=darkOrange}
 
 %--------------------------------------------------------
@@ -179,13 +181,14 @@
 %-----------------------------------------------------
 % Define title page
 %-----------------------------------------------------
+
 \setbeamertemplate{title page}
 {%
 \begin{beamercolorbox}[sep=0cm,right,wd=\paperwidth,ht=\titlepageheaderheight,rightskip=\headingleftmargin]{titlepageheader}
-\includegraphics[width=0.2720\paperwidth]{python-logo.png}
+\includegraphics[width=0.2720\paperwidth]{tj_logo.jpg}
 \vskip0.0361\titlepageheaderheight
 \end{beamercolorbox}
-\begin{beamercolorbox}[center,wd=0.95\paperwidth,ht=\titlepagemaintitleblockheight,rounded=true,shadow=true]{title}
+\begin{beamercolorbox}[center,wd=0.87\paperwidth,ht=\titlepagemaintitleblockheight,rounded=true,shadow=true]{title}
   \usebeamerfont{title}\inserttitle\\
   \vskip\titlepagespaceunderdate%
   \usebeamerfont{subtitle}\insertsubtitle
@@ -204,7 +207,6 @@
 \begin{beamercolorbox}[center,wd=\paperwidth,ht=\titlepagefooterheight]{titlepagefooter}
 \end{beamercolorbox}
 }
-
 \begin{comment}
 \begin{beamercolorbox}[center,wd=0.92\paperwidth,ht=\titlepagemaintitleblockheight,rounded=true,shadow=true]{title}
   \usebeamerfont{title}\inserttitle\\
@@ -220,9 +222,7 @@
 \end{beamercolorbox}%
 \end{comment}
 
-\begin{comment}
 % Footline: AUTHOR | TITLE | DATE FRAMENUMBER
-
 \defbeamertemplate*{footline}{ru theme}{%
   \leavevmode%
   \hbox{%
@@ -238,7 +238,6 @@
   \end{beamercolorbox}}%
   \vskip0pt%
 }
-\end{comment}
 
 \pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
   color(0pt)=(frametitle.bg);
@@ -285,4 +284,4 @@
 %    \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
 %    \vskip-2pt
 }
-\setbeamercolor{frametitle}{bg=pyyellow,fg=pyblue}
+\setbeamercolor{frametitle}{bg=black!5!white,fg=tjblue}
