@@ -1,77 +1,65 @@
 \documentclass[hyperref,UTF8,11pt]{beamer}
-\usepackage{ctex}
-\usepackage[utf8]{inputenc}
+\usepackage[heading=true]{ctex}
+% \usepackage[utf8]{inputenc}
 \usepackage{fontspec}
 \usepackage{comment}
-
+\usepackage{minted}
 \setmonofont{Consolas}
 \setsansfont{Microsoft YaHei}
 \setCJKmainfont{Microsoft YaHei}
-
 \usefonttheme{professionalfonts}
-\usepackage{hyperref}
+
 \usepackage{graphicx}
+
 \graphicspath{{image/}} % storage figure in a sub-folder
-% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
-%\usepackage{epstopdf}
-\usepackage{bm}
 \usepackage{tjcolor}
-%\usepackage{hyperref}
 \hypersetup{CJKbookmarks=true}
 \usepackage{url}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsthm}
-%\theoremstyle{definition}
-%\newtheorem{theorem}{定理}
-%\newtheorem{definition}{定义}
-%\newtheorem{corollary}{推论}
-%\newtheorem{example}{例}
 \usepackage{booktabs} % for much better looking tables
-%\usepackage{cite} % reference
-\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
-%\usepackage[backend=biber,style=apalike]{biblatex}
-%\usepackage[backend=biber,style=authoryear]{biblatex}
-% if style=apalike or authoryear, use \parencite instead of \cite
-\addbibresource{tjthesis.bib}
-\beamertemplatetextbibitems
 \usepackage{array} % for better arrays (eg matrices) in maths
 %\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \usepackage{subfigure} % make it possible to include more than one captioned figure/table in a single float
 % These packages are all incorporated in the memoir class to one degree or another...
 %\usepackage{threeparttable}
-\usepackage{cases} %equation set
-\usepackage{multirow} %use table
-\usepackage{enumerate}
+% \usepackage{cases} %equation set
+% \usepackage{multirow} %use table
+% \usepackage{enumerate}
 \usepackage{algorithm}
-\usepackage{algorithmic}
+\usepackage{algpseudocode}
 \usepackage{xcolor}
+\usepackage{bm}
 %\usepackage{capt-of}
 \setcounter{tocdepth}{1}%只显示section，不显示subsection
 \usepackage{listings}
+\numberwithin{equation}{section} %按节编号
+% \usepackage[colorlinks=true]{hyperref}
+\newcommand{\degree}{^\circ}
+\newcommand{\ud}{\,\mathrm{d}}
+
+% \newtheorem{Theorem}{定理}
 
 
-\title[Beamer模板]{中文题目}
-\subtitle{English Title}
-\author[作者]{答辩人：\quad \\ 学号：\quad  \\ 专业：\quad \\ 指导教师：\quad \\\quad}
-\institute[学院]{同济大学 \quad 学院}
-\date{2019年5月} %Activate to display a given date or no date (if empty),
+\title{题目}
+% \subtitle{English Title}
+\author[Zhouwei YU]
+{
+汇报人：余周炜\\
+专业：测绘工程\\ 
+指导教师：郝彤教授 \\
+}
+\institute[Tongji CSGI]{同济大学\quad 测绘与地理信息学院}
+\date{\today} %Activate to display a given date or no date (if empty),
 % otherwise the current date is printed
 
 \begin{document}
 %%%%%%%%%% 定理类环境的定义 %%%%%%%%%%
 %% 必须在导入中文环境之后
 \newcommand{\redstress}[1]{{\color{red}{#1}}}
-%\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
-\renewcommand{\contentsname}{目录}     % 将Contents改为目录
-\renewcommand{\abstractname}{摘要}     % 将Abstract改为摘要
-\renewcommand{\refname}{参考文献}      % 将References改为参考文献
-\renewcommand{\indexname}{索引}
-\renewcommand{\figurename}{图}
-\renewcommand{\tablename}{表}
-\renewcommand{\appendixname}{附录}
-%\renewcommand{\proofname}{证明}
-%\renewcommand{\algorithm}{算法}
+
 %----------------------------------------------------------------------
 % Title frame
 \begin{frame}
@@ -82,9 +70,13 @@
 
 \begin{frame}{Frametitle}
     \begin{itemize}
-        \item First
-        \item Second
-        \item ...
+    \item An item.
+    \begin{itemize}
+    \item A nested item.
+    \item[+] A ‘plus’ item.
+    \item Another item.
+    \end{itemize}
+    \item Go back to upper .
     \end{itemize}
 \end{frame}
 
@@ -92,9 +84,9 @@
     \begin{block}{Part 1}
         Test.
     \end{block}
-    \begin{theorem}[Thm 1]
+    \begin{Theorem}[Thm 1]
         Thm.
-    \end{theorem}
+    \end{Theorem}
     \begin{proof}
         Bingo.
     \end{proof}
@@ -102,11 +94,11 @@
 
 \begin{frame}{Enumerate}
     \begin{equation}
-        F=ma\label{eq1}
+        F=ma\label{eq:1}
     \end{equation}
     \begin{enumerate}
         \item First \redstress{important\cite{em1977}}
-        \item Second \eqref{eq1}
+        \item Second \eqref{eq:1}
     \end{enumerate}
 \end{frame}
 
@@ -122,21 +114,38 @@ This is comment.
     \begin{algorithm}[H]
         \caption{算法1}\label{alg:em}
         \begin{algorithmic}[1]
-            \REQUIRE Param
-            \ENSURE $a$
-            \REPEAT
-            \STATE Compute $a_n$
-            \UNTIL convergence
-            \RETURN $a\leftarrow a_n$
+            \Require Param
+            \Ensure $a$
+            \Repeat
+            \State Compute $a_n$
+            \Until convergence
+            \Return $a\leftarrow a_n$
         \end{algorithmic}
-    \end{algorithm}    
+    \end{algorithm} 
+\end{frame}
+
+\begin{frame}{算法2}
+    \begin{algorithm}[H]
+        \caption{Euclid’s algorithm}\label{alg:euclid}
+        \begin{algorithmic}[1] %number every line, 0:no line numbering
+        \Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+        \State $r\gets a\bmod b$
+        \While{$r\not=0$}\Comment{We have the answer if r is 0}
+        \State $a\gets b$
+        \State $b\gets r$
+        \State $r\gets a\bmod b$
+        \EndWhile\label{alg:euclidendwhile}
+        \State \textbf{return} $b$\Comment{The gcd is b}
+        \EndProcedure
+        \end{algorithmic}
+        \end{algorithm}   
 \end{frame}
 
 \begin{frame}{图片}
     \begin{figure}
         \centering
         \includegraphics[width=0.85\textwidth]{tj_logo.jpg}
-        \caption{南开大学}\label{fig:nk}
+        \caption{同济大学}\label{fig:tj}
     \end{figure}
 \end{frame}
 
@@ -146,7 +155,7 @@ This is comment.
             \begin{figure}
                 \centering
                 \includegraphics[width=0.95\textwidth]{tj_logo.jpg}
-                \caption{NKU}\label{fig:nku}
+                \caption{TJU}\label{fig:tju}
             \end{figure}
         \end{column}
         \begin{column}{0.7\textwidth}
@@ -162,16 +171,36 @@ This is comment.
         \centering
         \subfigure[]{\includegraphics[width=0.47\textwidth]{tj_logo.jpg}}
         \subfigure[]{\includegraphics[width=0.47\textwidth]{tjbackground1.jpg}}
-        \caption{Subfigure\footnote{See: \url{www.nankai.edu.cn}}}\label{fig:rnn}
+        \caption{Subfigure\footnote{See: \url{www.tongji.edu.cn}}}\label{fig:rnn}
     \end{figure}
 \end{frame}
 
 % To put the content of a frame in several pages, use allowframebreaks
-\begin{frame}[allowframebreaks]
-    \frametitle{Longframe}
+\begin{frame}[allowframebreaks]{Longframe}
     \begin{itemize}
-        \item ...
+        \item 1
+        \item 2
+        \item 3
+        \item 4
+        \item 5
+        \item 6
+        \item 7
+        \item 8
+        \item 9
+        \item 10
     \end{itemize}
+    \begin{enumerate}
+        \item 1
+        \item 2
+        \item 3
+        \item 4
+        \item 5
+        \item 6
+        \item 7
+        \item 8
+        \item 9
+        \item 10
+    \end{enumerate}
 \end{frame}
 
 \section{仿真}
@@ -190,26 +219,30 @@ This is comment.
         \centering
         \caption{数据}
         \label{tab1}
-        \begin{tabular}{@{}ccccc@{}}
+        \begin{tabular}{p{3cm}cccc}
         \toprule
-                    & $q$         & $r$         & $a$ & $p$           \\ \midrule
-        实际值         & $1$  & $5$  & 2   & 3  \\
-        方法1          & $4$ & $3$ & 1 & 1\\
-        方法2        & $4$ & $3$ & 2 & 2\\
-        方法3 & $5$ & $2$ & 3 & 3\\
-        方法4          & $4$ & $2$ & 2 & 2\\ \bottomrule
+        & $q$    & $r$ & $a$ & $p$           \\ 
+        \midrule
+        实际值   & $1$  & $5$  & 2   & 3  \\
+        方法1    & $4$ & $3$ & 1 & 1\\
+        方法2    & $4$ & $3$ & 2 & 2\\
+        方法3    & $5$ & $2$ & 3 & 3\\
+        方法4    & $4$ & $2$ & 2 & 2\\ \bottomrule
         \end{tabular}
     \end{table}
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{代码}
-    \begin{lstlisting}[language=java]
-public class Hello{
-    public static void main(String args[]){
-        System.out.println("hello,world");
-    }
-}\end{lstlisting}
+\frametitle{代码}
+\begin{minted}[linenos]{java}
+public class Hello
+{
+      public static void main(String args[])
+      {
+      System.out.println("hello,world");
+      }
+}
+\end{minted}
 \end{frame}
 
 \section{总结与展望}
@@ -223,14 +256,13 @@ public class Hello{
 \end{frame}
 
 \begin{frame}{致谢}
-    \begin{block}{致谢}
-        谢谢大家。
-    \end{block}
+ \centering
+ \Huge 谢谢大家！
 \end{frame}
 
-\begin{frame}[allowframebreaks]
-    \frametitle{参考文献}
-    \printbibliography
+\begin{frame}{参考文献}
+\bibliography{slides}
+\bibliographystyle{ieeetr}
 \end{frame}
 
 \end{document}

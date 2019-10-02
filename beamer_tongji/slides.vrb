@@ -1,7 +1,10 @@
 \frametitle{代码}
-    \begin{lstlisting}[language=java]
-public class Hello{
-    public static void main(String args[]){
-        System.out.println("hello,world");
-    }
-}\end{lstlisting}
+\begin{minted}[linenos]{java}
+public class Hello
+{
+      public static void main(String args[])
+      {
+      System.out.println("hello,world");
+      }
+}
+\end{minted}
