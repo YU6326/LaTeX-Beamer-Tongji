@@ -1,0 +1,690 @@
+\documentclass[a4paper]{article} %四号=14pt，小四=12pt，五号=10.5pt
+\usepackage[heading=true]{ctex} %设置中文章节标题
+\usepackage{graphicx} %插图
+\usepackage{float} % 使用H控制浮动
+\usepackage[section]{placeins} %限制浮动范围
+\usepackage{booktabs} %使用三线表
+\usepackage{listings} %使用环境lstlisting
+\usepackage{minted} %使用环境minted排程序更美观,需要python包Pygments
+\usepackage{xcolor} %使用color
+
+\usepackage{amsmath}
+\usepackage{amssymb} %mathbb
+\usepackage{amsthm} %proof
+\usepackage[margin=1in]{geometry} %调整页边距与word相同
+\usepackage{algorithm}
+% \usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage[colorlinks=true]{hyperref} %超链接，为减少冲突，需要将其放在其他宏包之后。
+\numberwithin{equation}{section} %按节编号
+% \setcounter{tocdepth}{3}
+
+\newcommand{\degree}{^\circ}
+\newcommand{\ud}{\,\mathrm{d}}
+
+\newtheorem{Theorem}{定理}
+
+\title{\heiti \LaTeX\; Cookbook}
+\author{\kaishu 余周炜\thanks{Email: \href{mailto:yuzhouwei6326@outlook.com}{yuzhouwei6326@outlook.com}}}
+\date{\today}
+\begin{document}
+% \frontmatter
+\maketitle
+
+\begin{abstract}
+本文用简短的语言让你快速上手LaTeX。
+\end{abstract}
+
+\clearpage
+\tableofcontents
+
+% \mainmatter
+\newpage
+\section{\TeX 须知}\label{sec:tex}
+
+\subsection{概述}
+\TeX\ 是高德纳(Donald E.Knuth)开发的、以排版文字和数学公式为目的的一个计算机软件。
+
+\subsection{查看宏包}
+
+在Terminal下输入下列命令：
+\begin{lstlisting}
+    texdoc <pkg-name>
+\end{lstlisting}
+
+可以参看包的说明。第\ref{sec:tex}节的页码是\pageref{sec:tex}。
+
+查看常用的数学符号和公式参见\href{https://katex.org/docs/supported.html}{KaTeX Supported Functions}。
+
+查看常用的宏包和用法参见\href{https://en.wikibooks.org/wiki/LaTeX}{WIKIBOOKS \LaTeX}有关内容。
+
+\section{符号和字体}
+This is my \emph{first} document prepared in \LaTeX. I typed it on \today.
+The complete \TeX\ reserved charcaters are \textasciitilde, \#, \$, \%, 
+\textasciicircum, \&, \_, \textbackslash,\{,\}. \\[10pt]
+\noindent This is the second line.Here are some font families:
+\textrm{roman}, \textsf{sans serif}, \texttt{typewriter}, \textmd{medium}, 
+\textbf{boldface}, \textup{upright}, \textit{italic}, \textsl{slanted}, 
+\textsc{small cap}.
+\subsection{Size}\label{sub:size}
+\subsubsection{size} \label{ssb:size}
+如\ref{sub:size}小节\ref{ssb:size}子节所示：{\tiny size} {\small size} 
+{\large size} {\Large size} {\LARGE size} {\huge size} {\Huge size}
+
+\begin{minted}{tex}
+This is my \emph{first} document prepared in \LaTeX. I typed it on \today.
+The complete \TeX\ reserved charcaters are \textasciitilde, \#, \$, \%, 
+\textasciicircum, \&, \_, \textbackslash,\{,\}. \\[10pt]
+\noindent This is the second line.
+\textrm{roman}, \textsf{sans serif}, \texttt{typewriter}, \textmd{medium}, 
+\textbf{boldface}, \textup{upright}, \textit{italic}, \textsl{slanted}, 
+\textsc{small cap}.
+\subsection{Size}\label{sub:size}
+\subsubsection{size} \label{ssb:size}
+如\ref{sub:size}小节\ref{ssb:size}子节所示：{\tiny size} {\small size} 
+{\large size} {\Large size} {\LARGE size} {\huge size} {\Huge size}
+\end{minted}
+
+\section{文档}
+
+\begin{quote}
+“天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。”\footnote{出自《千字文》}。
+\end{quote}
+
+\subsection{有序列表}
+\begin{minipage}{0.5\textwidth}
+\begin{enumerate}
+\item An item.
+\begin{enumerate}
+\item A nested item.
+\item[*] A starred item.
+\item Another item. \label{itm:itref}
+\end{enumerate}
+\item Go back to upper level.
+\item Reference(\ref{itm:itref}).
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{minted}{tex}
+\begin{enumerate}
+\item An item.
+\begin{enumerate}
+\item A nested item.
+\item[*] A starred item.
+\item Another item. \label{itm:itref}
+\end{enumerate}
+\item Go back to upper level.
+\item Reference(\ref{itm:itref}).
+\end{enumerate}
+\end{minted}
+\end{minipage}
+
+\subsection{无序列表}
+
+\begin{minipage}{0.5\textwidth}
+\begin{itemize}
+\item An item.
+\begin{itemize}
+\item A nested item.
+\item[+] A ‘plus’ item.
+\item Another item.
+\end{itemize}
+\item Go back to upper .
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{minted}{tex}
+\begin{itemize}
+\item An item.
+\begin{itemize}
+\item A nested item.
+\item[+] A ‘plus’ item.
+\item Another item.
+\end{itemize}
+\item Go back to upper.
+\end{itemize}
+\end{minted}
+\end{minipage}
+
+\subsection{对齐}
+\begin{center}
+Centered text using a
+\verb|center| environment.等价于\verb|\centering|
+\end{center}
+\begin{flushleft}
+Left-aligned text using a
+\verb|flushleft| environment.%verb原文照排
+\end{flushleft}
+\begin{flushright}
+Right-aligned text using a
+\verb|flushright| environment.
+\end{flushright}
+
+\subsection{表格}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{p{5cm}ccc}
+\toprule 
+& \multicolumn{3}{c}{Numbers} \\
+\cmidrule{2-4} 
+& 1 & 2 & 3 \\
+\midrule
+Alphabet & A & B & C \\
+Roman & I & II& III \\
+\bottomrule 
+\end{tabular}
+\caption{三线表} 
+\end{table}
+
+\begin{minted}{tex}
+    \begin{table}[htbp]
+    \centering
+    \begin{tabular}{p{5cm}ccc}
+    \toprule 
+    & \multicolumn{3}{c}{Numbers} \\
+    \cmidrule{2-4} 
+    & 1 & 2 & 3 \\
+    \midrule
+    Alphabet & A & B & C \\
+    Roman & I & II& III \\
+    \bottomrule 
+    \end{tabular}
+    \caption{三线表} 
+    \end{table}
+\end{minted}
+
+\subsection{图片}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.2\textwidth]{tongji.jpg}
+\caption{同济校徽}
+\end{figure}
+
+\begin{minted}{tex}
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{tongji.jpg}
+    \caption{同济校徽}
+    \end{figure}
+\end{minted}
+
+\subsection{盒子}
+\begin{minipage}[t]{0.5\textwidth}
+千字文：\\
+天地玄黄 宇宙洪荒。\footnote{脚注来自minipage}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\bfseries 西江月$\cdot$ 证明
+\end{center}
+\hspace{2em}即得易见平凡，仿照上例显然。留作习题答案略，读者自证不难。
+
+\hspace{2em}反之亦然同理，推论自然成立。略去过程QED，由上可知证毕。
+\end{minipage}
+\vspace{2cm}
+
+\textsf{文字用\textcolor{red}{红色}强调\\
+\colorbox{gray}{深灰色背景} 
+\colorbox[gray]{0.95}{浅灰色背景} \\
+\fcolorbox{blue}{yellow}{%
+\textcolor{blue}{蓝色边框+文字，黄色背景}}
+}
+
+
+\section{数学公式}
+
+Add $a$ squared and $b$ squared to get $c$ squared
+\begin{equation}
+a^2+b^2=c^2 \label{eq:gougu}
+\end{equation}
+
+称公式\eqref{eq:gougu}为勾股定理。
+
+行内公式：
+$\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}$
+的显示较行间公式局促：
+\begin{equation*}
+\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+\end{equation*}
+
+加\verb|\displaystyle|可以改变这一情况：$\displaystyle \lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}$
+
+公式和字符混排：
+\begin{equation}x^{2} \ge 0 \qquad \forall
+\text{(for \textbf{all})}
+x\in\mathbb{R}
+\end{equation}
+
+Pascal's rule is
+\begin{equation}
+\binom{n}{k} =\binom{n-1}{k}
++ \binom{n-1}{k-1}
+\end{equation}
+
+叠加：
+\[
+f_n(x) \stackrel{*}{\approx} 1
+\]
+
+使用\verb|\left| 和\verb|\right| 命令可令括号（定界符）的大小可变，在行间公式中常用。\LaTeX 会自动根据括号内的公式大小决定定界符大小。\verb|\left| 和\verb|\right| 必须成对使用。需要使用单个定界符时，另一个定界符写成 \verb|\left.| 或 \verb|\right.|
+
+对齐：
+\begin{align}
+a =& b + c \notag \\
+=& d + e
+\end{align}
+
+不对齐：
+\begin{gather}
+a = b + c \\
+d = e + f + g \\
+h + i = j + k \notag \\
+l + m = n
+\end{gather}
+
+矩阵：
+\begin{equation}
+\mathbf X = 
+\begin{pmatrix}
+x_{11} & x_{12} & \ldots & x_{1n}\\
+x_{21} & x_{22} & \ldots & x_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{n1} & x_{n2} & \ldots & x_{nn}\\
+\end{pmatrix}
+\end{equation}
+
+选择：
+\begin{equation}
+|x| =
+\begin{cases}
+-x & \text{if } x < 0,\\
+0 & \text{if } x = 0,\\
+x & \text{if } x > 0.
+\end{cases}
+\end{equation}
+
+积分的写法：
+\begin{equation}
+\int_a^b f(x)\ud x
+\end{equation}
+
+定理：
+\begin{Theorem}[Energy]
+The relationship of energy,
+momentum and mass is
+\begin{equation}
+E^2 = m_0^2 c^4 + p^2 c^2
+\end{equation}
+\end{Theorem}
+
+证明\cite[page 48]{lshort}：
+\begin{proof}
+For simplicity, we use
+\[
+E=mc^2 \qedhere
+\]
+\end{proof}
+
+\section{代码和算法}
+\subsection{代码}
+\begin{minted}[linenos]{c++}
+#include <iostream>
+using namespace std;
+int main() 
+{
+    cout << "Hello, World!";
+    return 0;
+}
+\end{minted}
+
+\subsection{算法}
+\begin{algorithm}[H]
+\caption{Euclid’s algorithm}\label{alg:euclid}
+\begin{algorithmic}[1] %number every line, 0:no line numbering
+\Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+\State $r\gets a\bmod b$
+\While{$r\not=0$}\Comment{We have the answer if r is 0}
+\State $a\gets b$
+\State $b\gets r$
+\State $r\gets a\bmod b$
+\EndWhile\label{alg:euclidendwhile}
+\State \textbf{return} $b$\Comment{The gcd is b}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+The \textbf{while} in algorithm
+\ref{alg:euclid} ends in line
+\ref{alg:euclidendwhile}, so
+\algref{alg:euclid}{alg:euclidendwhile}
+is the line we seek.
+
+
+\begin{algorithm}[H]
+\caption{Part 1}
+\begin{algorithmic}[1]
+\Procedure {BellmanKalaba}{$G$, $u$, $l$, $p$}
+\ForAll {$v \in V(G)$}
+\State $l(v) \leftarrow \infty$
+\EndFor
+\State $l(u) \leftarrow 0$
+\Repeat
+\For {$i \leftarrow 1, n$}
+\State $min \leftarrow l(v_i)$
+\For {$j \leftarrow 1, n$}
+\If {$min > e(v_i, v_j) + l(v_j)$}
+\State $min \leftarrow e(v_i, v_j) + l(v_j)$
+\State \Comment For some reason we need to break here!
+\algstore{bkbreak}
+\end{algorithmic}
+\end{algorithm}
+
+    And we need to put some additional text between\dots
+
+\begin{algorithm}[H]
+\caption{Part 2}
+\begin{algorithmic}[1]
+\algrestore{bkbreak}
+\State $p(i) \leftarrow v_j$
+\EndIf
+\EndFor
+\State $l’(i) \leftarrow min$
+\EndFor
+\State $changed \leftarrow l \not= l’$
+\State $l \leftarrow l’$
+\Until{$\neg changed$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\appendix
+\section{版权}
+
+未经作者允许不得随意转载，需要转载请联系作者，邮箱:\\\href{mailto:yuzhouwei6326@outlook.com}{yuzhouwei6326@outlook.com}。
+
+\section{部分源代码}
+
+\begin{minted}[linenos]{tex}
+    \documentclass[a4paper]{article} %四号=14pt，小四=12pt，五号=10.5pt
+    \usepackage[heading=true]{ctex} %设置中文章节标题
+    \usepackage{graphicx} %插图
+    \usepackage{float} % 使用H控制浮动
+    \usepackage[section]{placeins} %限制浮动范围
+    \usepackage{booktabs} %使用三线表
+    \usepackage{listings} %使用环境lstlisting
+    \usepackage{minted} %使用环境minted排程序更美观,需要python包Pygments
+    \usepackage{xcolor} %使用color
+    
+    \usepackage{amsmath}
+    \usepackage{amssymb} %mathbb
+    \usepackage{amsthm} %proof
+    \usepackage[margin=1in]{geometry} %调整页边距与word相同
+    \usepackage{algorithm}
+    % \usepackage{algorithmicx}
+    \usepackage{algpseudocode}
+    \usepackage[colorlinks=true]{hyperref} %超链接，为减少冲突，需要将其放在其他宏包之后。
+    \numberwithin{equation}{section} %按节编号
+    % \setcounter{tocdepth}{3}
+    
+    \newcommand{\degree}{^\circ}
+    \newcommand{\ud}{\,\mathrm{d}}
+    
+    \newtheorem{Theorem}{定理}
+    
+    \title{\heiti \LaTeX\; Cookbook}
+    \author{\kaishu 余周炜\thanks{Email: 
+    \href{mailto:yuzhouwei6326@outlook.com}{yuzhouwei6326@outlook.com}}}
+    \date{\today}
+    \begin{document}
+    % \frontmatter
+    \maketitle
+    
+    \begin{abstract}
+    本文用简短的语言让你快速上手LaTeX。
+    \end{abstract}
+    
+    \clearpage
+    \tableofcontents
+    
+    % \mainmatter
+    \newpage
+    \section{\TeX 须知}\label{sec:tex}
+    
+    \subsection{概述}
+    \TeX\ 是高德纳(Donald E.Knuth)开发的、以排版文字和数学公式为目的的一个计算机软件。
+    \subsection{查看宏包}
+    在Terminal下输入下列命令：
+    \begin{lstlisting}
+        texdoc <pkg-name>
+    \end{lstlisting} 
+    可以参看包的说明。第\ref{sec:tex}节的页码是\pageref{sec:tex}。
+    
+    查看常用的数学符号和公式参见
+    \href{https://katex.org/docs/supported.html}{KaTeX Supported Functions}。
+    
+    查看常用的宏包和用法参见
+    \href{https://en.wikibooks.org/wiki/LaTeX}{WIKIBOOKS \LaTeX}有关内容。
+    
+    \section{符号和字体}    
+    \section{文档}
+    \begin{quote}
+    “天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。”\footnote{出自《千字文》}。
+    \end{quote}
+
+    \subsection{对齐}
+    \begin{center}
+    Centered text using a
+    \verb|center| environment.等价于\verb|\centering|
+    \end{center}
+    \subsection{盒子}
+    \begin{minipage}[t]{0.5\textwidth}
+    千字文：\\
+    天地玄黄 宇宙洪荒。\footnote{脚注来自minipage}
+    \end{minipage}
+    三字经：\parbox[t]{3em}%
+    {人之初 性本善 性相近 习相远}
+    \quad
+    \vspace{2cm}
+    \textsf{文字用\textcolor{red}{红色}强调\\
+    \colorbox{gray}{深灰色背景} 
+    \colorbox[gray]{0.95}{浅灰色背景} \\
+    \fcolorbox{blue}{yellow}{%
+    \textcolor{blue}{蓝色边框+文字，黄色背景}}
+    }
+    
+    \section{数学公式}
+    Add $a$ squared and $b$ squared to get $c$ squared
+    \begin{equation}
+    a^2+b^2=c^2 \label{eq:gougu}
+    \end{equation}
+    称公式\eqref{eq:gougu}为勾股定理。
+    
+    行内公式：
+    $\lim_{n \to \infty}
+    \sum_{k=1}^n \frac{1}{k^2}
+    = \frac{\pi^2}{6}$
+    的显示较行间公式局促：
+    \begin{equation*}
+    \lim_{n \to \infty}
+    \sum_{k=1}^n \frac{1}{k^2}
+    = \frac{\pi^2}{6}
+    \end{equation*}
+    
+    加\verb|\displaystyle|可以改变这一情况：$\displaystyle \lim_{n \to \infty}
+    \sum_{k=1}^n \frac{1}{k^2}
+    = \frac{\pi^2}{6}$
+    
+    公式和字符混排：
+    \begin{equation}x^{2} \ge 0 \qquad \forall
+    \text{(for \textbf{all})}
+    x\in\mathbb{R}
+    \end{equation}
+    
+    Pascal's rule is
+    \begin{equation}
+    \binom{n}{k} =\binom{n-1}{k}
+    + \binom{n-1}{k-1}
+    \end{equation}
+    
+    叠加：
+    \[
+    f_n(x) \stackrel{*}{\approx} 1
+    \]
+    
+    使用\verb|\left| 和\verb|\right| 命令可令括号（定界符）的大小可变，
+    在行间公式中常用。\LaTeX 会自动根据括号内的公式大小决定定界符大小。
+    \verb|\left| 和\verb|\right| 必须成对使用。需要使用单个定界符时，
+    另一个定界符写成 \verb|\left.| 或 \verb|\right.|
+    
+    对齐：
+    \begin{align}
+    a =& b + c \notag \\
+    =& d + e
+    \end{align}
+    
+    不对齐：
+    \begin{gather}
+    a = b + c \\
+    d = e + f + g \\
+    h + i = j + k \notag \\
+    l + m = n
+    \end{gather}
+    
+    矩阵：
+    \begin{equation}
+    \mathbf X = 
+    \begin{pmatrix}
+    x_{11} & x_{12} & \ldots & x_{1n}\\
+    x_{21} & x_{22} & \ldots & x_{2n}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    x_{n1} & x_{n2} & \ldots & x_{nn}\\
+    \end{pmatrix}
+    \end{equation}
+    
+    选择：
+    \begin{equation}
+    |x| =
+    \begin{cases}
+    -x & \text{if } x < 0,\\
+    0 & \text{if } x = 0,\\
+    x & \text{if } x > 0.
+    \end{cases}
+    \end{equation}
+    
+    积分的写法：
+    \begin{equation}
+    \int_a^b f(x)\ud x
+    \end{equation}
+    
+    定理：
+    \begin{Theorem}[Energy]
+    The relationship of energy,
+    momentum and mass is
+    \begin{equation}
+    E^2 = m_0^2 c^4 + p^2 c^2
+    \end{equation}
+    \end{Theorem}
+    
+    证明\cite[page 48]{lshort}：
+    \begin{proof}
+    For simplicity, we use
+    \[
+    E=mc^2 \qedhere
+    \]
+    \end{proof}
+    
+    \section{代码和算法}
+    \subsection{代码}
+    \begin{minted}[linenos]{c++}
+    #include <iostream>
+    using namespace std;
+    int main() 
+    {
+        cout << "Hello, World!";
+        return 0;
+    }
+    \end{minte}d %为了不提早结束
+    
+    \subsection{算法}
+    \begin{algorithm}[H]
+    \caption{Euclid’s algorithm}\label{alg:euclid}
+    \begin{algorithmic}[1] %number every line, 0:no line numbering
+    \Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+    \State $r\gets a\bmod b$
+    \While{$r\not=0$}\Comment{We have the answer if r is 0}
+    \State $a\gets b$
+    \State $b\gets r$
+    \State $r\gets a\bmod b$
+    \EndWhile\label{alg:euclidendwhile}
+    \State \textbf{return} $b$\Comment{The gcd is b}
+    \EndProcedure
+    \end{algorithmic}
+    \end{algorithm}
+    
+    The \textbf{while} in algorithm
+    \ref{alg:euclid} ends in line
+    \ref{alg:euclidendwhile}, so
+    \algref{alg:euclid}{alg:euclidendwhile}
+    is the line we seek.
+    
+    \begin{algorithm}[H]
+    \caption{Part 1}
+    \begin{algorithmic}[1]
+    \Procedure {BellmanKalaba}{$G$, $u$, $l$, $p$}
+    \ForAll {$v \in V(G)$}
+    \State $l(v) \leftarrow \infty$
+    \EndFor
+    \State $l(u) \leftarrow 0$
+    \Repeat
+    \For {$i \leftarrow 1, n$}
+    \State $min \leftarrow l(v_i)$
+    \For {$j \leftarrow 1, n$}
+    \If {$min > e(v_i, v_j) + l(v_j)$}
+    \State $min \leftarrow e(v_i, v_j) + l(v_j)$
+    \State \Comment For some reason we need to break here!
+    \algstore{bkbreak}
+    \end{algorithmic}
+    \end{algorithm}
+    
+        And we need to put some additional text between\dots
+    
+    \begin{algorithm}[H]
+    \caption{Part 2}
+    \begin{algorithmic}[1]
+    \algrestore{bkbreak}
+    \State $p(i) \leftarrow v_j$
+    \EndIf
+    \EndFor
+    \State $l’(i) \leftarrow min$
+    \EndFor
+    \State $changed \leftarrow l \not= l’$
+    \State $l \leftarrow l’$
+    \Until{$\neg changed$}
+    \EndProcedure
+    \end{algorithmic}
+    \end{algorithm}
+    
+    \appendix
+    \section{源代码}
+    % \backmatter
+    \begin{thebibliography}{99}
+    \bibitem{lshort}Tobias Oetiker：一份不太简短的\LaTeXe 介绍。
+    \bibitem{ltxprimer}Trivandrum: \LaTeX\ Tutorials: A Primer, India。
+    \end{thebibliography}
+    \end{document}
+\end{minted}
+
+% \backmatter
+\begin{thebibliography}{99}
+\bibitem{lshort}Tobias Oetiker：一份不太简短的\LaTeXe 介绍。
+\bibitem{ltxprimer}Trivandrum: \LaTeX\ Tutorials: A Primer, India。
+\end{thebibliography}
+
+
+\end{document}
