@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{绪论}{2}{0}{1}
+\beamer@sectionintoc {2}{算法}{6}{0}{2}
+\beamer@sectionintoc {3}{仿真}{14}{0}{3}
+\beamer@sectionintoc {4}{总结与展望}{18}{0}{4}
