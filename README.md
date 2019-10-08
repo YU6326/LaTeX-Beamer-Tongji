@@ -15,7 +15,10 @@ bibtex slides
 xelatex -shell-escape slides
 xelatex -shell-escape slides
 ```
-and you can get the PDF.
+and you can get the PDF:
+
+![示例](tongji_title.PNG)
+
 <br/>
 
 
