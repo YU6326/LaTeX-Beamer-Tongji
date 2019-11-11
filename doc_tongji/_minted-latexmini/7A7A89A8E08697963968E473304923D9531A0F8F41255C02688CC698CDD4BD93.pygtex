@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}table\PYG{n+nb}{\PYGZcb{}}[htbp]
+    \PYG{k}{\PYGZbs{}centering}
+    \PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}tabular\PYG{n+nb}{\PYGZcb{}\PYGZob{}}p\PYG{n+nb}{\PYGZob{}}5cm\PYG{n+nb}{\PYGZcb{}}ccc\PYG{n+nb}{\PYGZcb{}}
+    \PYG{k}{\PYGZbs{}toprule}
+    \PYG{n+nb}{\PYGZam{}} \PYG{k}{\PYGZbs{}multicolumn}\PYG{n+nb}{\PYGZob{}}3\PYG{n+nb}{\PYGZcb{}\PYGZob{}}c\PYG{n+nb}{\PYGZcb{}\PYGZob{}}Numbers\PYG{n+nb}{\PYGZcb{}} \PYG{k}{\PYGZbs{}\PYGZbs{}}
+    \PYG{k}{\PYGZbs{}cmidrule}\PYG{n+nb}{\PYGZob{}}2\PYGZhy{}4\PYG{n+nb}{\PYGZcb{}}
+    \PYG{n+nb}{\PYGZam{}} 1 \PYG{n+nb}{\PYGZam{}} 2 \PYG{n+nb}{\PYGZam{}} 3 \PYG{k}{\PYGZbs{}\PYGZbs{}}
+    \PYG{k}{\PYGZbs{}midrule}
+    Alphabet \PYG{n+nb}{\PYGZam{}} A \PYG{n+nb}{\PYGZam{}} B \PYG{n+nb}{\PYGZam{}} C \PYG{k}{\PYGZbs{}\PYGZbs{}}
+    Roman \PYG{n+nb}{\PYGZam{}} I \PYG{n+nb}{\PYGZam{}} II\PYG{n+nb}{\PYGZam{}} III \PYG{k}{\PYGZbs{}\PYGZbs{}}
+    \PYG{k}{\PYGZbs{}bottomrule}
+    \PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}tabular\PYG{n+nb}{\PYGZcb{}}
+    \PYG{k}{\PYGZbs{}caption}\PYG{n+nb}{\PYGZob{}}三线表\PYG{n+nb}{\PYGZcb{}}
+    \PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}table\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

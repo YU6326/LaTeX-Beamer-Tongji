@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}enumerate\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}item} An item.
+\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}enumerate\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}item} A nested item.
+\PYG{k}{\PYGZbs{}item}\PYG{n+na}{[*]} A starred item.
+\PYG{k}{\PYGZbs{}item} Another item. \PYG{k}{\PYGZbs{}label}\PYG{n+nb}{\PYGZob{}}itm:itref\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}enumerate\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}item} Go back to upper level.
+\PYG{k}{\PYGZbs{}item} Reference(\PYG{k}{\PYGZbs{}ref}\PYG{n+nb}{\PYGZob{}}itm:itref\PYG{n+nb}{\PYGZcb{}}).
+\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}enumerate\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}
