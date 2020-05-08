@@ -1,0 +1,68 @@
+\documentclass[a4paper]{article} %四号=14pt，小四=12pt，五号=10.5pt
+\usepackage[heading=true]{ctex} %设置中文章节标题
+\usepackage{graphicx} %插图
+\usepackage{float} % 使用H控制浮动
+\usepackage[section]{placeins} %限制浮动范围
+\usepackage{booktabs} %使用三线表
+\usepackage{minted} %使用环境minted排程序更美观,需要python包Pygments
+\usepackage{xcolor} %使用color
+
+\usepackage{amsmath,amssymb,amsthm} % mathbb ,proof
+\usepackage[margin=1in]{geometry} %调整页边距与word相同
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[colorlinks=true]{hyperref} %超链接
+
+\usepackage{glossaries}
+
+\newglossaryentry{ex}{name={sample},description={an example}}
+\newacronym{svm}{SVM}{support vector machine}
+
+
+% \numberwithin{equation}{section} %按节编号
+% \setcounter{tocdepth}{3}
+
+\newtheorem{Theorem}{定理}
+
+\title{\LaTeX\ Professional}
+\author{\kaishu 余周炜\thanks{Email: \href{mailto:yuzhouwei6326@outlook.com}{yuzhouwei6326@outlook.com}}}
+\date{\today}
+\begin{document}
+% \frontmatter
+\maketitle
+
+\begin{abstract}
+本文主要说明\LaTeX 的各种高级用法和注意事项。
+
+\end{abstract}
+
+\section{\LaTeX 的文档结构}
+
+\LaTeX 整个文档分为两个部分：
+\begin{enumerate}
+    \item 导言区
+    \item 正文区
+\end{enumerate}
+
+形式如下：
+\begin{minted}{tex}
+% 导言区
+\documentclass[UTF8]{article}
+\usepackage{ctex}
+
+\author{余周炜}
+\date{\today}
+% 正文区
+\begin{document}
+\maketitle
+这里是第一行。
+\end{document}
+\end{minted}
+
+\section{index 和 glossary}
+
+Here's my \gls{ex} term.
+
+First use: \gls{svm}. Second use: \gls{svm}.
+
+\end{document}
